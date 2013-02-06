@@ -90,71 +90,72 @@ end
 
 --login
 if (appId) then 
-
-		local function fbphoto(event)
+-- 	functions for buttons
+		local function fb_Post_Photo(event)
 			fbCommand = POST_PHOTO
 			facebook.login(appId,listner, {"publish_stream"})
 		end
 		
-		local function showD(event)
+		local function fb_Show_Dialog(event)
 			fbCommand = SHOW_DIALOG
 			facebook.login(appId,listner, {"publish_stream"})
 		end
 
-		local function fbMsg(event)
+		local function fb_Post_Message(event)
 			fbCommand = POST_MSG
 			facebook.login(appId,listner, {"publish_stream"})
 		end
 
-		local function fbUsr(event)
+		local function fb_Get_User(event)
 			fbCommand = GET_USER_INFO
 			facebook.login(appId,listner, {"publish_stream"})
 		end
 		
 		
-		local function FblogOut( event )
+		local function Fb_logOut( event )
 			fbCommand = LOGOUT
 			facebook.logout()
 		end
 
+		--buttons facebook
 		
-		local FbButton = widget.newButton{
+		local FbButton_logOut = widget.newButton{
 			default = "fbButton.png",
-			onRelease = FblogOut,
+			onRelease = Fb_logOut,
 			label = "logout",
 			left = 0 
 		}	
 		
-		local FbButton = widget.newButton{
+		local FbButton_Show_Dialog = widget.newButton{
 			default = "fbButton.png",
-			onRelease = showD,
+			onRelease =fb_Show_Dialog,
 			label = "showDialog",
 			left = 0,
 			top=50
 		}
 
 
-		local Fbphoto = widget.newButton{
+		local FbButton_Post_Photo = widget.newButton{
 			default = "fbButton.png",
-			onRelease = fbphoto,
+			onRelease = fb_Post_Photo,
 			label = "photo",
 			left =0,
 			top=100
 
 		}
 		
-		local Fbget_msg = widget.newButton{
+		local Fbbutton_Post_Message = widget.newButton{
 			default = "fbButton.png",
-			onRelease = fbMsg,
+			onRelease = fb_Post_Message,
 			label = "msg_only",
 			left =0,
 			top=150
 
 		}
 			
-		local Fbget_msg = widget.newButton{
+		local FbButton_Get_User = widget.newButton{
 			default = "fbButton.png",
-			onRelease = fbUsr,
+			onRelease = fb_Get_User,
 			label = "User info",
 			left =0,
 			top=200
